@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/getUser[1:3]","start":1711608601917,"end":1711608604238,"title":"src\/test\/java\/getUser[1:3] 12:20:01.917-12:20:04.238 testing the get call for User Details"},{"id":2,"group":1,"content":"src\/test\/java\/getUser[2:8]","start":1711608604245,"end":1711608604462,"title":"src\/test\/java\/getUser[2:8] 12:20:04.245-12:20:04.462 Get List User"},{"id":3,"group":1,"content":"src\/test\/java\/getUser[3:13]","start":1711608604471,"end":1711608604763,"title":"src\/test\/java\/getUser[3:13] 12:20:04.471-12:20:04.763 Get single User not found"},{"id":4,"group":1,"content":"src\/test\/java\/getUser[4:18]","start":1711608604777,"end":1711608605044,"title":"src\/test\/java\/getUser[4:18] 12:20:04.777-12:20:05.044 Get List resources"},{"id":5,"group":1,"content":"src\/test\/java\/getUser[5:23]","start":1711608605056,"end":1711608605248,"title":"src\/test\/java\/getUser[5:23] 12:20:05.056-12:20:05.248 Get single resource"},{"id":6,"group":1,"content":"src\/test\/java\/getUser[6:28]","start":1711608605263,"end":1711608605825,"title":"src\/test\/java\/getUser[6:28] 12:20:05.263-12:20:05.825 Get Single resource not found"},{"id":7,"group":1,"content":"src\/test\/java\/getUser[7:33]","start":1711608605844,"end":1711608609348,"title":"src\/test\/java\/getUser[7:33] 12:20:05.844-12:20:09.348 Get delayed response"},{"id":8,"group":1,"content":"src\/test\/java\/getUser[8:39]","start":1711608609360,"end":1711608610463,"title":"src\/test\/java\/getUser[8:39] 12:20:09.360-12:20:10.463 Gorest Get method"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
